@@ -270,6 +270,8 @@ double kmin_brent(kmin1_f func, double a, double b, void *data, double tol, doub
 /*************************
  *** Special functions ***
  *************************/
+ 
+// Rcpp 中有lgmma函数
 
 /* Log gamma function
  * \log{\Gamma(z)}
@@ -294,6 +296,13 @@ double kf_lgamma(double z)
  * \frac{2}{\sqrt{\pi}} \int_x^{\infty} e^{-t^2} dt
  * AS66, 2nd algorithm, http://lib.stat.cmu.edu/apstat/66
  */
+ 
+ //看这个代码 http://cos.name/2016/01/fast-normal-cdf/#more-11876
+// double Rcpp_erfc(double x)
+// {
+//   return 2 * Rf_pnorm5(x*M_SQRT2, 0.0, 1.0, 0, 0);
+// }
+ 
 double kf_erfc(double x)
 {
 	const double p0 = 220.2068679123761;
